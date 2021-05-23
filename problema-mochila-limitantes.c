@@ -8,7 +8,7 @@ int max(int a, int b){	return (a > b) ? a : b; }
 int brute_force(int capacidade, int pesos[], int variaveis[], int nVariaveis, time_t start_time)
 {
 	time_t now = time(0);
-	if(now - start_time < 10){
+	if(now - start_time < 7200){
 		if (nVariaveis == 0 || capacidade == 0)
 			return 0;
 		if (pesos[nVariaveis - 1] > capacidade){
@@ -16,7 +16,8 @@ int brute_force(int capacidade, int pesos[], int variaveis[], int nVariaveis, ti
 			return g;
 		}
 		else{
-			g = max(variaveis[nVariaveis - 1] + brute_force(capacidade - pesos[nVariaveis - 1], pesos, variaveis, nVariaveis - 1, start_time), brute_force(capacidade, pesos, variaveis, nVariaveis - 1, start_time));
+			g = max(variaveis[nVariaveis - 1] + brute_force(capacidade - pesos[nVariaveis - 1], 
+						pesos, variaveis, nVariaveis - 1, start_time), brute_force(capacidade, pesos, variaveis, nVariaveis - 1, start_time));
 			return g;
 		}
 	}
@@ -69,12 +70,12 @@ int main()
 {
 	int random_number;
 	time_t start_time = time(0);
-	int variaveis[10];
-	int pesos[10];
-	for (int i = 0; i < 10; i++) {
-		random_number = rand() % 350;
+	int variaveis[100];
+	int pesos[100];
+	for (int i = 0; i < 100; i++) {
+		random_number = rand() % 300;
 		variaveis[i] = random_number;
-		random_number = rand() % 350;
+		random_number = rand() % 300;
 		pesos[i] = random_number;
 	}
 	int capacidade;
@@ -86,8 +87,8 @@ int main()
 		capacidade = resSoma/2;
 	}
 	brute_force(capacidade, pesos, variaveis, n, start_time);
-	printf("Brute Force:\tResultado de uma mochila com capacidade %d e %d variaveis, foi: %d\n", capacidade, n, g);
-	printf("Uso de limi:\tResultado de uma mochila com capacidade %d e %d variaveis, foi: %d\n", capacidade, n, limitante(capacidade, pesos, variaveis, n));
+	printf("Brute Force:\t\tResultado de uma mochila com capacidade %d e %d variaveis, foi: %d\n", capacidade, n, g);
+	printf("Uso de limitante:\tResultado de uma mochila com capacidade %d e %d variaveis, foi: %d\n", capacidade, n, limitante(capacidade, pesos, variaveis, n));
 	return 0;
 }
 

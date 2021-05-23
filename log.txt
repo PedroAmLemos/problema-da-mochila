@@ -1,9 +1,20 @@
 10 variaveis:
-teste 1:
+teste 1 (1 ate 100):
 
-teste 2:
+Brute Force:		Resultado de uma mochila com capacidade 211 e 10 variaveis, foi: 474
+Uso de limitante:	Resultado de uma mochila com capacidade 211 e 10 variaveis, foi: 474
 
-teste 3:
+teste 2 (1 ate 200):
+
+Brute Force:		Resultado de uma mochila com capacidade 411 e 10 variaveis, foi: 938
+Uso de limitante:	Resultado de uma mochila com capacidade 411 e 10 variaveis, foi: 938
+
+teste 3 (1 ate 300):
+
+Brute Force:		Resultado de uma mochila com capacidade 911 e 10 variaveis, foi: 1331
+Uso de limitante:	Resultado de uma mochila com capacidade 911 e 10 variaveis, foi: 1331
+
+=========================================================================================
 
 100 variaveis:
 teste 1:
@@ -11,6 +22,8 @@ teste 1:
 teste 2:
 
 teste 3:
+
+=========================================================================================
 
 1000 variaveis:
 teste 1:
