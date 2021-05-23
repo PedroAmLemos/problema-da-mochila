@@ -2,42 +2,33 @@
 #include <time.h>
 #include <stdlib.h>
 
-
-// A utility function that returns
-// maximum of two integers
 int max(int a, int b)
 {
 	return (a > b) ? a : b;
 }
 
-// Returns the maximum value that
-// can be put in a knapsack of capacity W
-int mochila_limitantes(int W, int wt[], int val[], int n)
+int mochila_limitantes(int capacidade, int pesos[], int variaveis[], int n)
 {
 	int i, w;
 	/*int tabela[n + 1][W + 1];*/
 	int **tabela = (int **) malloc((n+1)*sizeof(int *));
 	for (int k = 0; k < (n+1); k++) {
-		tabela[k] = (int *) malloc((W+1)*sizeof(int));
+		tabela[k] = (int *) malloc((capacidade+1)*sizeof(int));
 	}
-
-	// Build table K[][] in bottom up manner
 	for (i = 0; i <= n; i++)
 	{
-		for (w = 0; w <= W; w++)
+		for (w = 0; w <= capacidade; w++)
 		{
 			if (i == 0 || w == 0)
 				tabela[i][w] = 0;
-			else if (wt[i - 1] <= w)
-				tabela[i][w] = max(val[i - 1]
-						+ tabela[i - 1][w - wt[i - 1]],
-						tabela[i - 1][w]);
+			else if (pesos[i - 1] <= w)
+				tabela[i][w] = max(variaveis[i - 1] + tabela[i - 1][w - pesos[i - 1]], tabela[i - 1][w]);
 			else
 				tabela[i][w] = tabela[i - 1][w];
 		}
 	}
 
-	return tabela[n][W];
+	return tabela[n][capacidade];
 }
 
 int soma(int vetor[], int n){
@@ -58,10 +49,8 @@ int maior(int vetor[]){
 	return i;
 }
 
-// Driver Code
 int main()
 {
-	srand(time(NULL));
 	int random_number;
 	int variaveis[1000];
 	int pesos[1000];
