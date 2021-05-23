@@ -41,19 +41,32 @@ def sort(variaveis, pesos):
     return variaveis, pesos
 
 
+def knapSack(W, wt, val, n):
+    K = [[0 for x in range(W + 1)] for x in range(n + 1)]
+    for i in range(n + 1):
+        for w in range(W + 1):
+            if i == 0 or w == 0:
+                K[i][w] = 0
+            elif wt[i-1] <= w:
+                K[i][w] = max(val[i-1] + K[i-1][w-wt[i-1]], K[i-1][w])
+            else:
+                K[i][w] = K[i-1][w]
+    return K[n][W]
+
+
 global result
 result = 0
 setrecursionlimit(10000)
 variaveis = []
 pesos = []
 n = 0
-while n < 10:
-    variavel = random.randint(1, 100)
+while n < 1000:
+    variavel = random.randint(1, 3000)
     variaveis.append(variavel)
     n += 1
 n = 0
-while n < 10:
-    variavel = random.randint(1, 100)
+while n < 1000:
+    variavel = random.randint(1, 3000)
     pesos.append(variavel)
     n += 1
 somaPesos = int(sum(pesos)/2)
@@ -65,10 +78,11 @@ n = len(variaveis)
 a = zip(variaveis, pesos)
 variaveis, pesos = sort(variaveis, pesos)
 try:
-    with time_limit(10):
+    with time_limit(5):
         brute_force(capacidade, pesos, variaveis, n)
 except TimeoutException as _:
     print("Timed out!")
 print(f'result:\t\t{result}')
 print(f'n:\t\t{n}')
 print(f'capacidade:\t{capacidade}')
+print(knapSack(capacidade, pesos, variaveis, n))

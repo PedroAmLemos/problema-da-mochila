@@ -1,0 +1,21 @@
+10 variaveis:
+teste 1:
+
+teste 2:
+
+teste 3:
+
+100 variaveis:
+teste 1:
+
+teste 2:
+
+teste 3:
+
+1000 variaveis:
+teste 1:
+
+teste 2:
+
+teste 3:
+
