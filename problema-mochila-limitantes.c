@@ -70,12 +70,12 @@ int main()
 {
 	int random_number;
 	time_t start_time = time(0);
-	int variaveis[100];
-	int pesos[100];
-	for (int i = 0; i < 100; i++) {
-		random_number = rand() % 300;
+	int variaveis[1000];
+	int pesos[1000];
+	for (int i = 0; i < 1000; i++) {
+		random_number = rand() % 5000;
 		variaveis[i] = random_number;
-		random_number = rand() % 300;
+		random_number = rand() % 5000;
 		pesos[i] = random_number;
 	}
 	int capacidade;
