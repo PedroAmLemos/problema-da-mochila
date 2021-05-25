@@ -16,8 +16,9 @@ int brute_force(int capacidade, int pesos[], int variaveis[], int nVariaveis, ti
 			return g;
 		}
 		else{
-			g = max(variaveis[nVariaveis - 1] + brute_force(capacidade - pesos[nVariaveis - 1], 
-						pesos, variaveis, nVariaveis - 1, start_time), brute_force(capacidade, pesos, variaveis, nVariaveis - 1, start_time));
+			g = max(variaveis[nVariaveis - 1] + 
+			brute_force(capacidade - pesos[nVariaveis - 1], pesos, variaveis, nVariaveis - 1, start_time), 
+			brute_force(capacidade, pesos, variaveis, nVariaveis - 1, start_time));
 			return g;
 		}
 	}
@@ -65,17 +66,27 @@ int maior(int vetor[]){
 	return i;
 }
 
+void print_vetor(int var[], int pes[], int size){
+	for(int i = 0; i < size; i++){
+		printf("%d\t%d\n", var[i], pes[i]);
+	}
+	for(int i = 0; i < size; i++){
+		printf("%d\n", var[i]/pes[i]);
+	}
+
+}
+
 
 int main()
 {
 	int random_number;
 	time_t start_time = time(0);
-	int variaveis[1000];
-	int pesos[1000];
-	for (int i = 0; i < 1000; i++) {
-		random_number = rand() % 5000;
+	int variaveis[10];
+	int pesos[10];
+	for (int i = 0; i < 10; i++) {
+		random_number = rand() % 1000;
 		variaveis[i] = random_number;
-		random_number = rand() % 5000;
+		random_number = rand() % 50;
 		pesos[i] = random_number;
 	}
 	int capacidade;
@@ -86,8 +97,22 @@ int main()
 	}else{
 		capacidade = resSoma/2;
 	}
+	int aux1;
+	int aux2;
+	for(int i = 0; i < n; i++){
+		for(int j = 0; j < n; j++ ){
+			if(variaveis[i]/pesos[i]>variaveis[j]/pesos[j]){
+				aux1 = variaveis[i];
+				aux2 = pesos[i];
+				variaveis[i] = variaveis[j];
+				pesos[i] = pesos[j];
+				variaveis[j] = aux1;
+				pesos[j] = aux2;
+			}
+		}
+	}
 	brute_force(capacidade, pesos, variaveis, n, start_time);
-	printf("Brute Force:\t\tResultado de uma mochila com capacidade %d e %d variaveis, foi: %d\n", capacidade, n, g);
+    printf("Brute Force:\t\tResultado de uma mochila com capacidade %d e %d variaveis, foi: %d\n", capacidade, n, g);
 	printf("Uso de limitante:\tResultado de uma mochila com capacidade %d e %d variaveis, foi: %d\n", capacidade, n, limitante(capacidade, pesos, variaveis, n));
 	return 0;
 }
