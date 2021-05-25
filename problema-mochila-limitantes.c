@@ -81,12 +81,12 @@ int main()
 {
 	int random_number;
 	time_t start_time = time(0);
-	int variaveis[10];
-	int pesos[10];
-	for (int i = 0; i < 10; i++) {
-		random_number = rand() % 1000;
+	int variaveis[1000];
+	int pesos[1000];
+	for (int i = 0; i < 1000; i++) {
+		random_number = rand() % 7000;
 		variaveis[i] = random_number;
-		random_number = rand() % 50;
+		random_number = rand() % 7000;
 		pesos[i] = random_number;
 	}
 	int capacidade;

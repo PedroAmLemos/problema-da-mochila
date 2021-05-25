@@ -12,3 +12,29 @@ Brute Force:            Resultado de uma mochila com capacidade 2611 e 10 variav
 Uso de limitante:       Resultado de uma mochila com capacidade 2611 e 10 variaveis, foi: 3811
 
 
+teste 100 variaveis:
+(1 ate 1000):
+Brute Force:            Resultado de uma mochila com capacidade 25540 e 100 variaveis, foi: 26541
+Uso de limitante:       Resultado de uma mochila com capacidade 25540 e 100 variaveis, foi: 37985
+
+(1 ate 2000):
+Brute Force:            Resultado de uma mochila com capacidade 47040 e 100 variaveis, foi: 53184
+Uso de limitante:       Resultado de uma mochila com capacidade 47040 e 100 variaveis, foi: 81250
+
+(1 ate 3000):
+Brute Force:            Resultado de uma mochila com capacidade 77540 e 100 variaveis, foi: 74003
+Uso de limitante:       Resultado de uma mochila com capacidade 77540 e 100 variaveis, foi: 113595
+
+teste 1000 variaveis:
+(1 ate 5000):
+Brute Force:            Resultado de uma mochila com capacidade 1247915 e 1000 variaveis, foi: 127670
+Uso de limitante:       Resultado de uma mochila com capacidade 1247915 e 1000 variaveis, foi: 1999287
+
+(1 ate 6000):
+Brute Force:            Resultado de uma mochila com capacidade 1523415 e 1000 variaveis, foi: 155749
+Uso de limitante:       Resultado de uma mochila com capacidade 1523415 e 1000 variaveis, foi: 2442458
+
+(1 ate 7000):
+Brute Force:            Resultado de uma mochila com capacidade 1758915 e 1000 variaveis, foi: 178356
+Uso de limitante:       Resultado de uma mochila com capacidade 1758915 e 1000 variaveis, foi: 2852804
+
